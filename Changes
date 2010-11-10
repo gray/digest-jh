@@ -1,4 +1,7 @@
 Revision history for Digest-JH
 
+0.02  Wed Nov 10 05:32:39 UTC 2010
+    - Updated add_bits to accept bit strings that are not a multiple of 8.
+
 0.01  Tue Nov  9 19:03:59 UTC 2010
     - Initial distribution.
