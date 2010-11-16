@@ -75,8 +75,8 @@ Digest::JH - Perl interface to the JH digest algorithm
     use Digest::JH qw(jh_256 jh_256_hex jh_256_base64);
 
     $digest = jh_256($data);
-    $digest = jh_hex_256($data);
-    $digest = jh_base64_256($data);
+    $digest = jh_256_hex($data);
+    $digest = jh_256_base64($data);
 
     # Object-oriented interface
     use Digest::JH;
