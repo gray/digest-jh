@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 15;
+use Test::More tests => 19;
 use Digest::JH;
 
 new_ok('Digest::JH' => [$_], "algorithm $_") for qw(224 256 384 512);
@@ -15,7 +15,16 @@ can_ok('Digest::JH',
 for my $alg (qw(224 256 384 512)) {
     my $d1 = Digest::JH->new($alg);
     $d1->add('foo bar')->reset;
-    is($d1->hexdigest, Digest::JH->new($alg)->hexdigest, 'reset');
+    is(
+        $d1->hexdigest,
+        Digest::JH->new($alg)->hexdigest,
+        "explicit reset of $alg"
+    );
+    is(
+        eval { $d1->reset->add('a')->digest; $d1->add('a')->hexdigest },
+        $d1->reset->add('a')->hexdigest,
+        "implicit reset of $alg"
+    );
 
     $d1->add('foobar');
     my $d2 = $d1->clone;
