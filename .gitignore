@@ -3,6 +3,8 @@ JH.bs
 JH.c
 JH.o
 MANIFEST.bak
+MYMETA.json
+MYMETA.yml
 Makefile
 Makefile.old
 blib/
